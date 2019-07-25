@@ -1,8 +1,10 @@
 package com.android.googletaskmanager
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
 
+    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -69,6 +72,7 @@ class MainActivity : AppCompatActivity() {
          *
          */
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
+//        mFirebaseAnalytics.setUserId("103255")
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
             askFavoriteFood()
