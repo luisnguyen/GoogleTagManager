@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -14,24 +13,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
-import kotlinx.android.synthetic.main.activity_main.pagerTabStrip
-import kotlinx.android.synthetic.main.activity_main.viewPager
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
-    /**
-        private static final String TAG = "MainActivity";
-        private static final String KEY_FAVORITE_FOOD = "favorite_food";
-
-        private static final ImageInfo[] IMAGE_INFOS = {
-        new ImageInfo(R.drawable.favorite, R.string.pattern1_title, R.string.pattern1_id),
-        new ImageInfo(R.drawable.flash, R.string.pattern2_title, R.string.pattern2_id),
-        new ImageInfo(R.drawable.face, R.string.pattern3_title, R.string.pattern3_id),
-        new ImageInfo(R.drawable.whitebalance, R.string.pattern4_title, R.string.pattern4_id),
-        };
-     */
 
     companion object {
         private const val TAG = "MainActivity"
@@ -44,35 +31,24 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-
-    /**
-     * private ImagePagerAdapter mImagePagerAdapter;
-     * private ViewPager mViewPager;
-     * private FirebaseAnalytics mFirebaseAnalytics;
-     * private String mFavoriteFood;
-     */
     private lateinit var mImagePagerAdapter : ImagePagerAdapter
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
 
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /**
-         * mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-         *
-           String userFavoriteFood = getUserFavoriteFood();
-                if (userFavoriteFood == null) {
-                    askFavoriteFood();
-                } else {
-                setUserFavoriteFood(userFavoriteFood);
-           }
-         *
-         */
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
-//        mFirebaseAnalytics.setUserId("103255")
+        val bundle = Bundle()
+        bundle.putString("LoginTime", "time_stamp")
+        mFirebaseAnalytics.logEvent("Logged_in", bundle)
+
+        var tagManager = TagManager.getInstance(this).setVerboseLoggingEnabled(true) as TagManager
+
+
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
             askFavoriteFood()
@@ -80,34 +56,13 @@ class MainActivity : AppCompatActivity() {
             setUserFavoriteFood(userFavoriteFood)
         }
 
-        /**
-         * mImagePagerAdapter = new ImagePagerAdapter(getSupportFragmentManager(), IMAGE_INFOS);
-         */
         mImagePagerAdapter = ImagePagerAdapter(supportFragmentManager, IMAGE_INFOS)
 
-        /**
-            mViewPager = findViewById(R.id.viewPager);
-            mViewPager.setAdapter(mImagePagerAdapter);
-         */
         viewPager.adapter = mImagePagerAdapter
 
-        /**
-            ViewPager.LayoutParams params = (ViewPager.LayoutParams)
-            findViewById(R.id.pagerTabStrip).getLayoutParams();
-            params.isDecor = true;
-         */
         val params = pagerTabStrip.layoutParams as ViewPager.LayoutParams
         params.isDecor = true
 
-        /**
-         *   mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-                @Override
-                public void onPageSelected(int position) {
-                    recordImageView();
-                    recordScreenView();
-                }
-            });
-         */
         viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
             override fun onPageSelected(position: Int) {
                 recordImageView()
