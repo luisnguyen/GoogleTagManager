@@ -42,12 +42,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
         val bundle = Bundle()
-        bundle.putString("LoginTime", "time_stamp")
-        mFirebaseAnalytics.logEvent("Logged_in", bundle)
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "D1A")
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "avatar.png")
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
 
-        var tagManager = TagManager.getInstance(this).setVerboseLoggingEnabled(true) as TagManager
-
+//        val bundle = Bundle()
+//        bundle.putString("LoginTime", "time_stamp")
+//        mFirebaseAnalytics.logEvent("Logged_in", bundle)
 
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
