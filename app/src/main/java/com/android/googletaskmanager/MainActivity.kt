@@ -1,6 +1,5 @@
 package com.android.googletaskmanager
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -13,10 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,23 +35,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
 
-    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-        val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "D1A")
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "avatar.png")
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
 
-//        val bundle = Bundle()
-//        bundle.putString("LoginTime", "time_stamp")
-//        mFirebaseAnalytics.logEvent("Logged_in", bundle)
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "hofdsfdsme")
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle)
 
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
