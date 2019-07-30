@@ -12,9 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import com.google.android.gms.tagmanager.DataLayer
+
+
 
 
 
@@ -31,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+
     private lateinit var mImagePagerAdapter : ImagePagerAdapter
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
@@ -40,10 +45,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-
         val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "hofdsfdsme")
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle)
+        bundle.putString("LoginTime", "time_stamp")
+        mFirebaseAnalytics.logEvent("Logged_in", bundle)
 
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
@@ -100,6 +104,10 @@ class MainActivity : AppCompatActivity() {
             .apply()
 
         mFirebaseAnalytics.setUserProperty("favorite_food", food)
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, food)
+        mFirebaseAnalytics.logEvent("set_favorite_food", bundle)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
