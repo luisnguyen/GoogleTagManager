@@ -1,6 +1,8 @@
 package com.android.googletaskmanager
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -12,16 +14,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
-import com.google.android.gms.tagmanager.DataLayer
 
 
 
 
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -40,14 +44,25 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val bundle = Bundle()
-        bundle.putString("LoginTime", "time_stamp")
-        mFirebaseAnalytics.logEvent("Logged_in", bundle)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val date = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
+            bundle.putString("DateOpenScreenView", formatter.format(date))
+        } else {
+            val date = Date()
+            val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
+            bundle.putString("DateOpenScreenView", formatter.format(date))
+        }
+        bundle.putString("CurrentActivity", MainActivity::class.simpleName)
+        bundle.putString("CurrentMethod", object{}.javaClass.enclosingMethod.name)
+        mFirebaseAnalytics.logEvent("view_activity", bundle)
 
         val userFavoriteFood = getUserFavoriteFood()
         if (userFavoriteFood == null) {
