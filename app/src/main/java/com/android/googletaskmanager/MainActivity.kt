@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.android.gms.tagmanager.CustomVariableProvider
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
@@ -26,7 +27,7 @@ import java.util.*
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CustomVariableProvider {
 
     companion object {
         private const val TAG = "MainActivity"
@@ -42,7 +43,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mImagePagerAdapter : ImagePagerAdapter
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
+    private var sHighScore : Long = 0
 
+    override fun getValue(p0: MutableMap<String, Any>?): String {
+        synchronized(MainActivity::class.java) {
+            Log.i(TAG, sHighScore.toString())
+            return sHighScore.toString()
+        }
+    }
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             setUserFavoriteFood(userFavoriteFood)
         }
+
 
         mImagePagerAdapter = ImagePagerAdapter(supportFragmentManager, IMAGE_INFOS)
 
