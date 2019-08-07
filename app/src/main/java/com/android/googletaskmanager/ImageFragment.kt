@@ -37,6 +37,12 @@ class ImageFragment : Fragment(), View.OnClickListener {
                 putString(FirebaseAnalytics.Param.ITEM_ID, "product158")
                 putString(FirebaseAnalytics.Param.ITEM_NAME, "Awesome product158")
             })
+
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SEARCH, Bundle().apply {
+                // ITEM_ID ("item_id") or ITEM_NAME("item_name") is required
+                putString(FirebaseAnalytics.Param.ITEM_ID, "product001")
+                putString(FirebaseAnalytics.Param.ITEM_NAME, "Awesome product001")
+            })
         }
     }
 
