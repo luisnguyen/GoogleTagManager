@@ -14,10 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.analytics.GoogleAnalytics
-import com.google.android.gms.analytics.HitBuilders
-import com.google.android.gms.analytics.Tracker
-import com.google.android.gms.tagmanager.CustomVariableProvider
 import com.google.android.gms.tagmanager.DataLayer
 import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -34,7 +30,7 @@ import java.util.*
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-class MainActivity : AppCompatActivity(), CustomVariableProvider {
+class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
@@ -49,21 +45,10 @@ class MainActivity : AppCompatActivity(), CustomVariableProvider {
     }
 
 
-    private lateinit var mGoogleAnalytics: GoogleAnalytics
     private lateinit var mImagePagerAdapter : ImagePagerAdapter
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
-    private var sHighScore : Long = 0
     private var mDataLayer: DataLayer? = null
 
-
-    private var activityTracker: Tracker? = null
-
-    override fun getValue(p0: MutableMap<String, Any>?): String {
-        synchronized(MainActivity::class.java) {
-            Log.i(TAG, sHighScore.toString())
-            return sHighScore.toString()
-        }
-    }
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,15 +56,8 @@ class MainActivity : AppCompatActivity(), CustomVariableProvider {
         setContentView(R.layout.activity_main)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-        mGoogleAnalytics = GoogleAnalytics.getInstance(this)
-        activityTracker = mGoogleAnalytics.newTracker(R.string.global_tracker)
-        activityTracker!!.setScreenName("Hello")
-        activityTracker!!.send(HitBuilders.ScreenViewBuilder().build())
-        activityTracker!!.setScreenName(null)
-
         mDataLayer = TagManager.getInstance(this).dataLayer
         mDataLayer!!.push(DataLayer.mapOf("event", "openScreen", "screenName", SCREEN_NAME))
-
 
         val bundle = Bundle()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
