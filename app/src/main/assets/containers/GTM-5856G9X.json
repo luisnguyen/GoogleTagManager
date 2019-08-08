@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"MTI$0",
+"fingerprint":"MTM$0",
 
 "resource": {
-  "version":"12",
+  "version":"13",
   
   "macros":[{
       "function":"__e",
@@ -19,8 +19,7 @@
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - Login Time",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"Hello How are you",
+      "vtp_setDefaultValue":false,
       "vtp_eventType":"CUSTOM",
       "vtp_key":"LoginTime"
     },{
@@ -63,15 +62,31 @@
       "vtp_suggestedEvent":"All Events",
       "vtp_eventType":"SUGGESTED"
     },{
+      "function":"__md",
+      "instance_name":"Firebase Paramater - Screen Name",
+      "vtp_setDefaultValue":false,
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"screenName"
+    },{
       "function":"__c",
       "instance_name":"Constant - GA Tracking ID",
       "vtp_value":"UA-144596178-1"
     },{
       "function":"__gas",
       "instance_name":"Google Analytics Settings",
-      "vtp_fieldsToSet":["list",["map","fieldName","screenName","value",["macro",1]],["map","fieldName","loginTime","value",["macro",2]],["map","fieldName","dateOpenScreenView","value",["macro",3]],["map","fieldName","currentActivity","value",["macro",4]],["map","fieldName","currentMethod","value",["macro",5]],["map","fieldName","dateOpen","value",["macro",6]],["map","fieldName","loadImage","value",["macro",7]],["map","fieldName","screenID","value",["macro",8]]],
+      "vtp_fieldsToSet":["list",["map","fieldName","itemName","value",["macro",1]],["map","fieldName","loginTime","value",["macro",2]],["map","fieldName","dateOpenScreenView","value",["macro",3]],["map","fieldName","currentActivity","value",["macro",4]],["map","fieldName","currentMethod","value",["macro",5]],["map","fieldName","dateOpen","value",["macro",6]],["map","fieldName","loadImage","value",["macro",7]],["map","fieldName","screenID","value",["macro",8]],["map","fieldName","screenName","value",["macro",9]]],
       "vtp_collectAdid":false,
-      "vtp_trackingId":["macro",9],
+      "vtp_trackingId":["macro",10],
+      "vtp_enableRecaptchaOption":false,
+      "vtp_enableUaRlsa":false,
+      "vtp_enableUseInternalVersion":false,
+      "vtp_enableFirebaseEcommerce":false
+    },{
+      "function":"__gas",
+      "instance_name":"Open Screen Settings",
+      "vtp_fieldsToSet":["list",["map","fieldName","screenName","value",["macro",9]]],
+      "vtp_collectAdid":false,
+      "vtp_trackingId":"UA-144596178-1",
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
@@ -83,7 +98,7 @@
       "function":"__fup",
       "instance_name":"User Property - app_id",
       "vtp_setDefaultValue":true,
-      "vtp_defaultValue":["macro",11],
+      "vtp_defaultValue":["macro",13],
       "vtp_key":"app_id"
     },{
       "function":"__md",
@@ -146,7 +161,7 @@
       "once_per_event":true,
       "vtp_overrideGaSettings":false,
       "vtp_trackType":"TRACK_SCREENVIEW",
-      "vtp_gaSettings":["macro",10],
+      "vtp_gaSettings":["macro",11],
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
@@ -160,7 +175,7 @@
       "vtp_overrideGaSettings":false,
       "vtp_eventCategory":"Image Click",
       "vtp_trackType":"TRACK_EVENT",
-      "vtp_gaSettings":["macro",10],
+      "vtp_gaSettings":["macro",11],
       "vtp_sendFirebaseCampaignData":true,
       "vtp_eventAction":"Click",
       "vtp_enableRecaptchaOption":false,
@@ -170,6 +185,18 @@
       "vtp_trackTypeIsEvent":true,
       "vtp_enableFirebaseEcommerce":true,
       "tag_id":4
+    },{
+      "function":"__ua",
+      "once_per_event":true,
+      "vtp_overrideGaSettings":false,
+      "vtp_trackType":"TRACK_SCREENVIEW",
+      "vtp_gaSettings":["macro",12],
+      "vtp_enableRecaptchaOption":false,
+      "vtp_enableUaRlsa":false,
+      "vtp_enableUseInternalVersion":false,
+      "vtp_enableFirebaseCampaignData":true,
+      "vtp_enableFirebaseEcommerce":true,
+      "tag_id":5
     }],
   "predicates":[{
       "function":"_eq",
@@ -191,13 +218,18 @@
       "function":"_eq",
       "arg0":["macro",0],
       "arg1":"select_content"
+    },{
+      "function":"_eq",
+      "arg0":["macro",0],
+      "arg1":"openScreen"
     }],
   "rules":[
     [["if",0],["add",0]],
     [["if",1],["add",0]],
     [["if",2],["add",0]],
     [["if",3],["add",0]],
-    [["if",4],["add",1]]]
+    [["if",4],["add",1]],
+    [["if",5],["add",2]]]
 },
 "runtime":
 [
