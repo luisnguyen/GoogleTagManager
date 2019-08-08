@@ -41,17 +41,17 @@
         <service android:name="com.google.android.gms.tagmanager.InstallReferrerService" />
 
 
-        <!--<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"-->
-                  <!--android:enabled="true"-->
-                  <!--android:exported="true">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.android.vending.INSTALL_REFERER"/>-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+                  android:enabled="true"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERER"/>
+            </intent-filter>
+        </receiver>
 
-        <!--<service android:name="com.google.android.gms.analytics.CampaignTrackingService"-->
-                 <!--android:enabled="true"-->
-                 <!--android:exported="false"/>-->
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"
+                 android:enabled="true"
+                 android:exported="false"/>
 
     </application>
 

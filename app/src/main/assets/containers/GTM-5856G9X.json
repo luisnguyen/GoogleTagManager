@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"MTM$0",
+"fingerprint":"MjM$0",
 
 "resource": {
-  "version":"13",
+  "version":"23",
   
   "macros":[{
       "function":"__e",
@@ -11,33 +11,24 @@
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - Item Name",
-      "vtp_setDefaultValue":false,
+      "vtp_setDefaultValue":true,
       "vtp_allEventParam":"item_name",
       "vtp_checkEcommerceValue":false,
+      "vtp_defaultValue":"Lorence",
       "vtp_suggestedEvent":"All Events",
       "vtp_eventType":"SUGGESTED"
     },{
       "function":"__md",
-      "instance_name":"Firebase Parameter - Login Time",
-      "vtp_setDefaultValue":false,
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"LoginTime"
-    },{
-      "function":"__md",
-      "instance_name":"Firebase Parameter - Date Open Screen View",
-      "vtp_setDefaultValue":false,
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"DateOpenScreenView"
-    },{
-      "function":"__md",
       "instance_name":"Firebase Parameter - Current Activity",
-      "vtp_setDefaultValue":false,
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"SplashActivity",
       "vtp_eventType":"CUSTOM",
       "vtp_key":"CurrentActivity"
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - Current Method",
-      "vtp_setDefaultValue":false,
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"onCreate",
       "vtp_eventType":"CUSTOM",
       "vtp_key":"CurrentMethod"
     },{
@@ -56,17 +47,12 @@
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - Item ID",
-      "vtp_setDefaultValue":false,
+      "vtp_setDefaultValue":true,
       "vtp_allEventParam":"item_id",
       "vtp_checkEcommerceValue":false,
+      "vtp_defaultValue":"001002003",
       "vtp_suggestedEvent":"All Events",
       "vtp_eventType":"SUGGESTED"
-    },{
-      "function":"__md",
-      "instance_name":"Firebase Paramater - Screen Name",
-      "vtp_setDefaultValue":false,
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"screenName"
     },{
       "function":"__c",
       "instance_name":"Constant - GA Tracking ID",
@@ -74,32 +60,13 @@
     },{
       "function":"__gas",
       "instance_name":"Google Analytics Settings",
-      "vtp_fieldsToSet":["list",["map","fieldName","itemName","value",["macro",1]],["map","fieldName","loginTime","value",["macro",2]],["map","fieldName","dateOpenScreenView","value",["macro",3]],["map","fieldName","currentActivity","value",["macro",4]],["map","fieldName","currentMethod","value",["macro",5]],["map","fieldName","dateOpen","value",["macro",6]],["map","fieldName","loadImage","value",["macro",7]],["map","fieldName","screenID","value",["macro",8]],["map","fieldName","screenName","value",["macro",9]]],
+      "vtp_fieldsToSet":["list",["map","fieldName",["macro",1],"value",["macro",1]],["map","fieldName",["macro",2],"value",["macro",2]],["map","fieldName",["macro",3],"value",["macro",3]],["map","fieldName",["macro",4],"value",["macro",4]],["map","fieldName",["macro",5],"value",["macro",5]],["map","fieldName",["macro",6],"value",["macro",6]]],
       "vtp_collectAdid":false,
-      "vtp_trackingId":["macro",10],
+      "vtp_trackingId":["macro",7],
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
       "vtp_enableFirebaseEcommerce":false
-    },{
-      "function":"__gas",
-      "instance_name":"Open Screen Settings",
-      "vtp_fieldsToSet":["list",["map","fieldName","screenName","value",["macro",9]]],
-      "vtp_collectAdid":false,
-      "vtp_trackingId":"UA-144596178-1",
-      "vtp_enableRecaptchaOption":false,
-      "vtp_enableUaRlsa":false,
-      "vtp_enableUseInternalVersion":false,
-      "vtp_enableFirebaseEcommerce":false
-    },{
-      "function":"__ai",
-      "instance_name":"App ID"
-    },{
-      "function":"__fup",
-      "instance_name":"User Property - app_id",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":["macro",13],
-      "vtp_key":"app_id"
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - share_image",
@@ -115,6 +82,9 @@
     },{
       "function":"__cid",
       "instance_name":"Container ID"
+    },{
+      "function":"__ai",
+      "instance_name":"App ID"
     },{
       "function":"__an",
       "instance_name":"App Name"
@@ -161,7 +131,7 @@
       "once_per_event":true,
       "vtp_overrideGaSettings":false,
       "vtp_trackType":"TRACK_SCREENVIEW",
-      "vtp_gaSettings":["macro",11],
+      "vtp_gaSettings":["macro",8],
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
@@ -175,7 +145,7 @@
       "vtp_overrideGaSettings":false,
       "vtp_eventCategory":"Image Click",
       "vtp_trackType":"TRACK_EVENT",
-      "vtp_gaSettings":["macro",11],
+      "vtp_gaSettings":["macro",8],
       "vtp_sendFirebaseCampaignData":true,
       "vtp_eventAction":"Click",
       "vtp_enableRecaptchaOption":false,
@@ -185,28 +155,8 @@
       "vtp_trackTypeIsEvent":true,
       "vtp_enableFirebaseEcommerce":true,
       "tag_id":4
-    },{
-      "function":"__ua",
-      "once_per_event":true,
-      "vtp_overrideGaSettings":false,
-      "vtp_trackType":"TRACK_SCREENVIEW",
-      "vtp_gaSettings":["macro",12],
-      "vtp_enableRecaptchaOption":false,
-      "vtp_enableUaRlsa":false,
-      "vtp_enableUseInternalVersion":false,
-      "vtp_enableFirebaseCampaignData":true,
-      "vtp_enableFirebaseEcommerce":true,
-      "tag_id":5
     }],
   "predicates":[{
-      "function":"_eq",
-      "arg0":["macro",0],
-      "arg1":"view_item"
-    },{
-      "function":"_cn",
-      "arg0":["macro",0],
-      "arg1":"Logged_in"
-    },{
       "function":"_cn",
       "arg0":["macro",0],
       "arg1":"view_activity"
@@ -218,18 +168,11 @@
       "function":"_eq",
       "arg0":["macro",0],
       "arg1":"select_content"
-    },{
-      "function":"_eq",
-      "arg0":["macro",0],
-      "arg1":"openScreen"
     }],
   "rules":[
     [["if",0],["add",0]],
     [["if",1],["add",0]],
-    [["if",2],["add",0]],
-    [["if",3],["add",0]],
-    [["if",4],["add",1]],
-    [["if",5],["add",2]]]
+    [["if",2],["add",1]]]
 },
 "runtime":
 [
@@ -264,7 +207,7 @@
 
 
 
-[50,"__fup_main",[46,"a"],[41,"b"],[3,"b",[2,[17,[15,"gtmUtils"],"mobile"],"userProperty",[7,[17,[15,"a"],"key"]]]],[22,[20,[15,"b"],[45]],[46,[22,[21,[17,[15,"a"],"defaultValue"],[44]],[46,[3,"b",[17,[15,"a"],"defaultValue"]]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"w",[0,[0,"No user property available for \"",[17,[15,"a"],"key"]],"\" and no default value was defined. Returning \"undefined\"."]]],[36]]]]],[36,[15,"b"]]],[50,"__fup",[46,"data"],[36,["__fup_main",[15,"data"]]]],
+
 
 [50,"__md_main",[46,"a"],[41,"b","c","d","e","f","g","h","i","j","k","l"],[22,[12,[17,[15,"a"],"eventType"],"CUSTOM"],[46,[3,"b",[16,[15,"a"],"key"]]],[46,[22,[12,[17,[15,"a"],"eventType"],"SUGGESTED"],[46,[47,"c",[15,"a"],[46,[3,"d",[2,[15,"c"],"lastIndexOf",[7,"Param"]]],[22,[1,[29,[15,"d"],[27,1]],[12,[15,"d"],[37,[17,[15,"c"],"length"],5]]],[46,[22,[20,[15,"b"],[44]],[46,[3,"b",[16,[15,"a"],[15,"c"]]]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"e",[0,[0,[0,"Ignoring unexpected additional parameter ","key in the data (key \u003d \""],[15,"c"]],"\")."]]]]]]]]]],[46,[22,[20,[17,[15,"a"],"eventType"],[44]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"w","Missing expected eventType param"]],[3,"b",[16,[15,"a"],"key"]]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"e",[0,"Unexpected eventType param value: ",[17,[15,"a"],"eventType"]]]],[36]]]]]]],[22,[20,[15,"b"],[44]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"e","No parameter key specified in the data."]],[36]]],[3,"e",[30,[2,[17,[15,"gtmUtils"],"mobile"],"eventParameters",[7]],[8]]],[22,[12,[2,[15,"b"],"indexOf",[7,"."]],[27,1]],[46,[3,"f",[16,[15,"e"],[15,"b"]]],[22,[1,[1,[20,[15,"f"],[44]],[12,[17,[15,"a"],"eventType"],"SUGGESTED"]],[17,[15,"a"],"checkEcommerceValue"]],[46,[3,"g",[7,"items","promotions"]],[47,"h",[15,"g"],[46,[3,"i",[16,[15,"g"],[15,"h"]]],[22,[21,[16,[15,"e"],[15,"i"]],[44]],[46,[3,"j",[16,[15,"e"],[15,"i"]]],[22,[2,[17,[15,"gtmUtils"],"common"],"isArray",[7,[15,"j"]]],[46,[22,[21,[16,[16,[15,"j"],0],[15,"b"]],[44]],[46,[36,[16,[16,[15,"j"],0],[15,"b"]]]]]],[46,[22,[21,[16,[15,"j"],[15,"b"]],[44]],[46,[36,[16,[15,"j"],[15,"b"]]]]]]]]]]]]]],[46,[3,"k",[2,[17,[15,"gtmUtils"],"common"],"split",[7,[15,"b"],"."]]],[3,"f",[15,"e"]],[47,"l",[15,"k"],[46,[3,"f",[16,[15,"f"],[16,[15,"k"],[15,"l"]]]],[22,[20,[15,"f"],[44]],[46,[4]]]]]]],[22,[21,[15,"f"],[44]],[46,[36,[15,"f"]]],[46,[22,[21,[17,[15,"a"],"defaultValue"],[44]],[46,[36,[17,[15,"a"],"defaultValue"]]],[46,[2,[17,[15,"gtmUtils"],"common"],"log",[7,"w",[0,[0,"Event does not have parameter \"",[15,"b"]],"\" and no default value was defined. Returning \"undefined\"."]]]]]]]],[50,"__md",[46,"data"],[36,["__md_main",[15,"data"]]]],
 

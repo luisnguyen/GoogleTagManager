@@ -59,15 +59,6 @@ class MainActivity : AppCompatActivity() {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val bundle = Bundle()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val date = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
-            bundle.putString("DateOpenScreenView", formatter.format(date))
-        } else {
-            val date = Date()
-            val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
-            bundle.putString("DateOpenScreenView", formatter.format(date))
-        }
         bundle.putString("CurrentActivity", MainActivity::class.simpleName)
         bundle.putString("CurrentMethod", object{}.javaClass.enclosingMethod.name)
         mFirebaseAnalytics.logEvent("view_activity", bundle)
