@@ -30,28 +30,28 @@
             </intent-filter>
         </activity>
 
-        <receiver
-                android:name="com.google.android.gms.tagmanager.InstallReferrerReceiver"
-                android:exported="true">
+        <activity
+                android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+                android:noHistory="true">
             <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
+                <data android:scheme="com.android.googletaskmanager" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
+                  android:enabled="true"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERER"/>
             </intent-filter>
         </receiver>
 
-        <service android:name="com.google.android.gms.tagmanager.InstallReferrerService" />
-
-
-        <!--<receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"-->
-                  <!--android:enabled="true"-->
-                  <!--android:exported="true">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.android.vending.INSTALL_REFERER"/>-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-
-        <!--<service android:name="com.google.android.gms.analytics.CampaignTrackingService"-->
-                 <!--android:enabled="true"-->
-                 <!--android:exported="false"/>-->
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"
+                 android:enabled="true"
+                 android:exported="false"/>
 
     </application>
 

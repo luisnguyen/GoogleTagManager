@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"MQ$0",
+"fingerprint":"Mg$0",
 
 "resource": {
-  "version":"1",
+  "version":"2",
   
   "macros":[{
       "function":"__e",
@@ -17,7 +17,7 @@
     },{
       "function":"__gas",
       "instance_name":"Open Screen - GA Settings",
-      "vtp_fieldsToSet":["list",["map","fieldName","screenName","value",["macro",1]]],
+      "vtp_fieldsToSet":["list",["map","fieldName","cd","value",["macro",1]]],
       "vtp_collectAdid":false,
       "vtp_trackingId":"UA-144596178-1",
       "vtp_enableRecaptchaOption":false,
