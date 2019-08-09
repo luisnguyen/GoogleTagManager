@@ -2,7 +2,6 @@ package com.android.googletaskmanager
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -14,23 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.analytics.GoogleAnalytics
-import com.google.android.gms.analytics.HitBuilders
-import com.google.android.gms.analytics.Tracker
-import com.google.android.gms.tagmanager.CustomVariableProvider
-import com.google.android.gms.tagmanager.DataLayer
-import com.google.android.gms.tagmanager.TagManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_main.*
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
-
-
-
-
-
 
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -39,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
         private const val KEY_FAVORITE_FOOD = "favorite_food"
-        private const val SCREEN_NAME = "Main Screen"
         private val IMAGE_INFOS = arrayOf (
             ImageInfo(R.drawable.favorite, R.string.pattern1_title, R.string.pattern1_id),
             ImageInfo(R.drawable.flash, R.string.pattern2_title, R.string.pattern2_id),
@@ -59,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         val bundle = Bundle()
-        bundle.putString("CurrentActivity", MainActivity::class.simpleName)
-        bundle.putString("CurrentMethod", object{}.javaClass.enclosingMethod.name)
+        bundle.putString("current_activity", MainActivity::class.simpleName)
+        bundle.putString("current_method", object{}.javaClass.enclosingMethod.name)
         mFirebaseAnalytics.logEvent("view_activity", bundle)
 
         val userFavoriteFood = getUserFavoriteFood()

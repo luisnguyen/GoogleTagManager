@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"MjM$0",
+"fingerprint":"NDI$0",
 
 "resource": {
-  "version":"23",
+  "version":"42",
   
   "macros":[{
       "function":"__e",
@@ -19,24 +19,11 @@
       "vtp_eventType":"SUGGESTED"
     },{
       "function":"__md",
-      "instance_name":"Firebase Parameter - Current Activity",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"SplashActivity",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"CurrentActivity"
-    },{
-      "function":"__md",
-      "instance_name":"Firebase Parameter - Current Method",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"onCreate",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"CurrentMethod"
-    },{
-      "function":"__md",
       "instance_name":"Firebase Parameter - Date Open",
-      "vtp_setDefaultValue":false,
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"Thursday",
       "vtp_eventType":"CUSTOM",
-      "vtp_key":"DateOpenScreenView"
+      "vtp_key":"DateOpen"
     },{
       "function":"__md",
       "instance_name":"Firebase Parameter - Load Image",
@@ -60,19 +47,33 @@
     },{
       "function":"__gas",
       "instance_name":"Google Analytics Settings",
-      "vtp_fieldsToSet":["list",["map","fieldName",["macro",1],"value",["macro",1]],["map","fieldName",["macro",2],"value",["macro",2]],["map","fieldName",["macro",3],"value",["macro",3]],["map","fieldName",["macro",4],"value",["macro",4]],["map","fieldName",["macro",5],"value",["macro",5]],["map","fieldName",["macro",6],"value",["macro",6]]],
+      "vtp_fieldsToSet":["list",["map","fieldName","\u0026item_name","value",["macro",1]],["map","fieldName","\u0026cc","value",["macro",2]],["map","fieldName","\u0026cc","value",["macro",3]],["map","fieldName","\u0026cc","value",["macro",4]],["map","fieldName","\u0026current_activity","value","dfdsljfdskfjldsfds"],["map","fieldName","current_method","value","fdsf fdsf"]],
       "vtp_collectAdid":false,
-      "vtp_trackingId":["macro",7],
+      "vtp_trackingId":["macro",5],
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
       "vtp_enableFirebaseEcommerce":false
     },{
       "function":"__md",
-      "instance_name":"Firebase Parameter - share_image",
+      "instance_name":"Firebase Parameter - Share Image",
       "vtp_setDefaultValue":false,
       "vtp_eventType":"CUSTOM",
       "vtp_key":"share_image"
+    },{
+      "function":"__md",
+      "instance_name":"Firebase Parameter - Current Activity",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"SplashActivity",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"current_activity"
+    },{
+      "function":"__md",
+      "instance_name":"Firebase Parameter - Current Method",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"onCreate",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"current_method"
     },{
       "function":"__ctv",
       "instance_name":"Container Version"
@@ -131,7 +132,7 @@
       "once_per_event":true,
       "vtp_overrideGaSettings":false,
       "vtp_trackType":"TRACK_SCREENVIEW",
-      "vtp_gaSettings":["macro",8],
+      "vtp_gaSettings":["macro",6],
       "vtp_enableRecaptchaOption":false,
       "vtp_enableUaRlsa":false,
       "vtp_enableUseInternalVersion":false,
@@ -145,7 +146,7 @@
       "vtp_overrideGaSettings":false,
       "vtp_eventCategory":"Image Click",
       "vtp_trackType":"TRACK_EVENT",
-      "vtp_gaSettings":["macro",8],
+      "vtp_gaSettings":["macro",6],
       "vtp_sendFirebaseCampaignData":true,
       "vtp_eventAction":"Click",
       "vtp_enableRecaptchaOption":false,
