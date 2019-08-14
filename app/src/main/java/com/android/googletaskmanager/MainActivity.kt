@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
+
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MainActivity : AppCompatActivity() {
 
@@ -53,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             setUserFavoriteFood(userFavoriteFood)
         }
-
 
         mImagePagerAdapter = ImagePagerAdapter(supportFragmentManager, IMAGE_INFOS)
 
