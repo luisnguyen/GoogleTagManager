@@ -21,6 +21,8 @@ class ImageFragment : Fragment(), View.OnClickListener {
 
     private var resId: Int = 0
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
+    private lateinit var date_open : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,17 +31,25 @@ class ImageFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onClick(v: View?) {
         if (v!!.id == R.id.imageView) {
-            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, Bundle().apply {
-                // ITEM_ID ("item_id") or ITEM_NAME("item_name") is required
-                putString(FirebaseAnalytics.Param.ITEM_ID, "product158")
-                putString(FirebaseAnalytics.Param.ITEM_NAME, "Awesome product158")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val date = LocalDateTime.now()
+                val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
+                date_open = formatter.format(date)
+            } else {
+                val date = Date()
+                val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
+                date_open = formatter.format(date)
+            }
+            mFirebaseAnalytics.logEvent("view_image_fragment", Bundle().apply {
+                putString("date_open", date_open)
+                putString("load_image", v.id.toString())
             })
         }
     }
 
-    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,19 +59,7 @@ class ImageFragment : Fragment(), View.OnClickListener {
         val imageView = view.findViewById<ImageView>(R.id.imageView)
         imageView.setImageResource(resId)
         imageView.setOnClickListener(this)
-        val view_image_fragment = Bundle()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val date = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
-            view_image_fragment.putString("DateOpen", formatter.format(date))
-        } else {
-            val date = Date()
-            val formatter = SimpleDateFormat("MMM dd yyyy HH:mma")
-            view_image_fragment.putString("DateOpen", formatter.format(date))
-        }
-        view_image_fragment.putLong("LoadImage", resId.toLong())
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this.context!!)
-        mFirebaseAnalytics.logEvent("view_image_fragment", view_image_fragment)
 
         return view
     }

@@ -1,56 +1,53 @@
 {
 
-"fingerprint":"MTc$0",
+"fingerprint":"NDg$0",
 
 "resource": {
-  "version":"17",
+  "version":"48",
   
   "macros":[{
       "function":"__e",
       "instance_name":"view_activity"
     },{
+      "function":"__e",
+      "instance_name":"view_image_fragment"
+    },{
       "function":"__md",
-      "instance_name":"Event Parameter - Current Activity",
+      "instance_name":"app_load_image",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"avatar.png",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"app_load_image"
+    },{
+      "function":"__e",
+      "instance_name":"set_favorite_food"
+    },{
+      "function":"__e",
+      "instance_name":"select_content"
+    },{
+      "function":"__md",
+      "instance_name":"current_activity",
       "vtp_setDefaultValue":true,
       "vtp_defaultValue":"Hello World",
       "vtp_eventType":"CUSTOM",
       "vtp_key":"current_activity"
     },{
       "function":"__md",
-      "instance_name":"Event Parameter - Current Method",
+      "instance_name":"current_method",
       "vtp_setDefaultValue":true,
       "vtp_defaultValue":"dota",
       "vtp_eventType":"CUSTOM",
       "vtp_key":"current_method"
     },{
-      "function":"__e",
-      "instance_name":"Event Name"
-    },{
-      "function":"__e",
-      "instance_name":"view_image_fragment"
-    },{
-      "function":"__e",
-      "instance_name":"user_engagement"
-    },{
-      "function":"__e",
-      "instance_name":"select_content"
-    },{
-      "function":"__e",
-      "instance_name":"screen_view"
-    },{
       "function":"__md",
-      "instance_name":"Event Parameter - Date Open",
+      "instance_name":"date_open",
       "vtp_setDefaultValue":true,
       "vtp_defaultValue":"26-07-1994",
       "vtp_eventType":"CUSTOM",
-      "vtp_key":"DateOpen"
+      "vtp_key":"date_open"
     },{
-      "function":"__md",
-      "instance_name":"Event Parameter - Load Image",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"avatar.png",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"LoadImage"
+      "function":"__e",
+      "instance_name":"image_click"
     },{
       "function":"__ctv",
       "instance_name":"Container Version"
@@ -87,36 +84,32 @@
     },{
       "function":"__rs",
       "instance_name":"Screen Resolution"
+    },{
+      "function":"__e",
+      "instance_name":"Event Name"
     }],
   "tags":[{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_editParamTable":["list",["map","editParamKey",["macro",1],"editParamValue",["macro",1]],["map","editParamKey",["macro",2],"editParamValue",["macro",2]]],
-      "vtp_overrideEventName":["macro",3],
-      "vtp_action":"filter",
+      "vtp_action":"block",
       "tag_id":1
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_overrideEventName":["macro",3],
-      "vtp_editParamTable":["list",["map","editParamKey","LoadAuthor","editParamValue","Nguyen Van Vuong"]],
+      "vtp_editParamTable":["list",["map","editParamKey",["macro",2],"editParamValue","hfghfghfghfghfg"]],
+      "vtp_overrideEventName":["macro",1],
       "vtp_action":"filter",
-      "tag_id":2
-    },{
-      "function":"__fm",
-      "once_per_event":true,
-      "vtp_action":"block",
-      "tag_id":6
-    },{
-      "function":"__fm",
-      "once_per_event":true,
-      "vtp_action":"block",
       "tag_id":7
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_action":"filter",
-      "tag_id":8
+      "vtp_action":"block",
+      "tag_id":10
+    },{
+      "function":"__fm",
+      "once_per_event":true,
+      "vtp_action":"block",
+      "tag_id":11
     }],
   "predicates":[{
       "function":"_cn",
@@ -124,27 +117,22 @@
       "arg1":"view_activity"
     },{
       "function":"_cn",
-      "arg0":["macro",4],
+      "arg0":["macro",1],
       "arg1":"view_image_fragment"
     },{
+      "function":"_cn",
+      "arg0":["macro",3],
+      "arg1":"set_favorite_food"
+    },{
       "function":"_eq",
-      "arg0":["macro",5],
-      "arg1":"user_engagement"
-    },{
-      "function":"_cn",
-      "arg0":["macro",6],
+      "arg0":["macro",4],
       "arg1":"select_content"
-    },{
-      "function":"_cn",
-      "arg0":["macro",7],
-      "arg1":"screen_view"
     }],
   "rules":[
     [["if",0],["add",0]],
     [["if",1],["add",1]],
     [["if",2],["add",2]],
-    [["if",3],["add",3]],
-    [["if",4],["add",4]]]
+    [["if",3],["add",3]]]
 },
 "runtime":
 [
