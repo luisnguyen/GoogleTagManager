@@ -34,6 +34,7 @@ class ImageFragment : Fragment(), View.OnClickListener {
     @SuppressLint("SimpleDateFormat")
     override fun onClick(v: View?) {
         if (v!!.id == R.id.imageView) {
+            /** Modify Event - View Image Fragment **/
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val date = LocalDateTime.now()
                 val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
@@ -45,12 +46,12 @@ class ImageFragment : Fragment(), View.OnClickListener {
             }
             mFirebaseAnalytics.logEvent("view_image_fragment", Bundle().apply {
                 putString("date_open", date_open)
-                putString("load_image", v.id.toString())
+                putString("app_load_image", v.id.toString())
             })
         }
     }
 
-    override fun onCreateView(
+    override fun onCreateView (
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?

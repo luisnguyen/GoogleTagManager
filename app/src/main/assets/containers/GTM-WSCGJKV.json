@@ -1,16 +1,16 @@
 {
 
-"fingerprint":"NDg$0",
+"fingerprint":"NTU$0",
 
 "resource": {
-  "version":"48",
+  "version":"55",
   
   "macros":[{
       "function":"__e",
       "instance_name":"view_activity"
     },{
       "function":"__e",
-      "instance_name":"view_image_fragment"
+      "instance_name":"Event Name"
     },{
       "function":"__md",
       "instance_name":"app_load_image",
@@ -18,6 +18,34 @@
       "vtp_defaultValue":"avatar.png",
       "vtp_eventType":"CUSTOM",
       "vtp_key":"app_load_image"
+    },{
+      "function":"__md",
+      "instance_name":"date_open",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"26-07-1994",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"date_open"
+    },{
+      "function":"__e",
+      "instance_name":"view_image_fragment"
+    },{
+      "function":"__ai",
+      "instance_name":"App ID"
+    },{
+      "function":"__an",
+      "instance_name":"App Name"
+    },{
+      "function":"__av",
+      "instance_name":"App Version Code"
+    },{
+      "function":"__cid",
+      "instance_name":"Container ID"
+    },{
+      "function":"__ov",
+      "instance_name":"OS Version"
+    },{
+      "function":"__dn",
+      "instance_name":"Device Name"
     },{
       "function":"__e",
       "instance_name":"set_favorite_food"
@@ -39,13 +67,6 @@
       "vtp_eventType":"CUSTOM",
       "vtp_key":"current_method"
     },{
-      "function":"__md",
-      "instance_name":"date_open",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"26-07-1994",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"date_open"
-    },{
       "function":"__e",
       "instance_name":"image_click"
     },{
@@ -55,23 +76,8 @@
       "function":"__r",
       "instance_name":"Random Number"
     },{
-      "function":"__cid",
-      "instance_name":"Container ID"
-    },{
-      "function":"__ai",
-      "instance_name":"App ID"
-    },{
-      "function":"__an",
-      "instance_name":"App Name"
-    },{
-      "function":"__av",
-      "instance_name":"App Version Code"
-    },{
       "function":"__l",
       "instance_name":"Language"
-    },{
-      "function":"__ov",
-      "instance_name":"OS Version"
     },{
       "function":"__p",
       "instance_name":"Platform"
@@ -79,14 +85,8 @@
       "function":"__sv",
       "instance_name":"SDK Version"
     },{
-      "function":"__dn",
-      "instance_name":"Device Name"
-    },{
       "function":"__rs",
       "instance_name":"Screen Resolution"
-    },{
-      "function":"__e",
-      "instance_name":"Event Name"
     }],
   "tags":[{
       "function":"__fm",
@@ -96,8 +96,9 @@
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_editParamTable":["list",["map","editParamKey",["macro",2],"editParamValue","hfghfghfghfghfg"]],
-      "vtp_overrideEventName":["macro",1],
+      "vtp_dropParamTable":["list",["map","dropParamKey",["macro",2]],["map","dropParamKey",["macro",3]]],
+      "vtp_overrideEventName":["macro",4],
+      "vtp_editParamTable":["list",["map","editParamKey","app_id","editParamValue",["macro",5]],["map","editParamKey","app_name","editParamValue",["macro",6]],["map","editParamKey","app_version_code","editParamValue",["macro",7]],["map","editParamKey","container_id","editParamValue",["macro",8]],["map","editParamKey","os_version","editParamValue",["macro",9]],["map","editParamKey","event_name","editParamValue",["macro",1]],["map","editParamKey","device_name","editParamValue",["macro",10]]],
       "vtp_action":"filter",
       "tag_id":7
     },{
@@ -116,16 +117,16 @@
       "arg0":["macro",0],
       "arg1":"view_activity"
     },{
-      "function":"_cn",
+      "function":"_eq",
       "arg0":["macro",1],
       "arg1":"view_image_fragment"
     },{
       "function":"_cn",
-      "arg0":["macro",3],
+      "arg0":["macro",11],
       "arg1":"set_favorite_food"
     },{
       "function":"_eq",
-      "arg0":["macro",4],
+      "arg0":["macro",12],
       "arg1":"select_content"
     }],
   "rules":[
