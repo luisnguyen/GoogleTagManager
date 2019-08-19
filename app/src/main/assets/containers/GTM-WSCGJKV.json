@@ -1,13 +1,27 @@
 {
 
-"fingerprint":"NTU$0",
+"fingerprint":"NjY$0",
 
 "resource": {
-  "version":"55",
+  "version":"66",
   
   "macros":[{
       "function":"__e",
       "instance_name":"view_activity"
+    },{
+      "function":"__md",
+      "instance_name":"current_method",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"dota",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"current_method"
+    },{
+      "function":"__md",
+      "instance_name":"current_activity",
+      "vtp_setDefaultValue":true,
+      "vtp_defaultValue":"Hello World",
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"current_activity"
     },{
       "function":"__e",
       "instance_name":"Event Name"
@@ -53,20 +67,6 @@
       "function":"__e",
       "instance_name":"select_content"
     },{
-      "function":"__md",
-      "instance_name":"current_activity",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"Hello World",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"current_activity"
-    },{
-      "function":"__md",
-      "instance_name":"current_method",
-      "vtp_setDefaultValue":true,
-      "vtp_defaultValue":"dota",
-      "vtp_eventType":"CUSTOM",
-      "vtp_key":"current_method"
-    },{
       "function":"__e",
       "instance_name":"image_click"
     },{
@@ -91,20 +91,25 @@
   "tags":[{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_action":"block",
+      "vtp_dropParamTable":["list",["map","dropParamKey",["macro",1]],["map","dropParamKey",["macro",2]]],
+      "vtp_overrideEventName":["macro",0],
+      "vtp_action":"filter",
       "tag_id":1
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_dropParamTable":["list",["map","dropParamKey",["macro",2]],["map","dropParamKey",["macro",3]]],
-      "vtp_overrideEventName":["macro",4],
-      "vtp_editParamTable":["list",["map","editParamKey","app_id","editParamValue",["macro",5]],["map","editParamKey","app_name","editParamValue",["macro",6]],["map","editParamKey","app_version_code","editParamValue",["macro",7]],["map","editParamKey","container_id","editParamValue",["macro",8]],["map","editParamKey","os_version","editParamValue",["macro",9]],["map","editParamKey","event_name","editParamValue",["macro",1]],["map","editParamKey","device_name","editParamValue",["macro",10]]],
+      "vtp_dropParamTable":["list",["map","dropParamKey","app_load_image"],["map","dropParamKey","date_open"],["map","dropParamKey","device_name"],["map","dropParamKey","event_name"]],
+      "vtp_overrideEventName":["macro",6],
+      "vtp_editParamTable":["list",["map","editParamKey","app_id","editParamValue",["macro",7]],["map","editParamKey","app_name","editParamValue",["macro",8]],["map","editParamKey","app_version_code","editParamValue",["macro",9]],["map","editParamKey","container_id","editParamValue",["macro",10]],["map","editParamKey","os_version","editParamValue",["macro",11]],["map","editParamKey","event_name","editParamValue",["macro",3]],["map","editParamKey","device_name","editParamValue",["macro",12]]],
       "vtp_action":"filter",
       "tag_id":7
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_action":"block",
+      "vtp_dropParamTable":["list",["map","dropParamKey","event_name"],["map","dropParamKey","item_name"],["map","dropParamKey","item_id"],["map","dropParamKey","firebase_conversion"],["map","dropParamKey","firebase_event_origin"],["map","dropParamKey","firebase_screen"],["map","dropParamKey","firebase_screen_class"],["map","dropParamKey","firebase_screen_id"]],
+      "vtp_overrideEventName":["macro",13],
+      "vtp_editParamTable":["list",["map","editParamKey","event_name","editParamValue",["macro",3]]],
+      "vtp_action":"filter",
       "tag_id":10
     },{
       "function":"__fm",
@@ -118,22 +123,30 @@
       "arg1":"view_activity"
     },{
       "function":"_eq",
-      "arg0":["macro",1],
+      "arg0":["macro",3],
       "arg1":"view_image_fragment"
     },{
       "function":"_cn",
-      "arg0":["macro",11],
+      "arg0":["macro",4],
+      "arg1":"app_load_image"
+    },{
+      "function":"_cn",
+      "arg0":["macro",5],
+      "arg1":"date_open"
+    },{
+      "function":"_cn",
+      "arg0":["macro",13],
       "arg1":"set_favorite_food"
     },{
       "function":"_eq",
-      "arg0":["macro",12],
+      "arg0":["macro",14],
       "arg1":"select_content"
     }],
   "rules":[
     [["if",0],["add",0]],
-    [["if",1],["add",1]],
-    [["if",2],["add",2]],
-    [["if",3],["add",3]]]
+    [["if",1,2,3],["add",1]],
+    [["if",4],["add",2]],
+    [["if",5],["add",3]]]
 },
 "runtime":
 [

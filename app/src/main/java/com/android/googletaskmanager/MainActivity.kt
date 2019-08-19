@@ -96,17 +96,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUserFavoriteFood(food: String) {
-        Log.d(TAG, "setFavoriteFood: $food")
-
         PreferenceManager.getDefaultSharedPreferences(this).edit()
             .putString(KEY_FAVORITE_FOOD, food)
             .apply()
 
         mFirebaseAnalytics.setUserProperty("favorite_food", food)
 
-        val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, food)
-        mFirebaseAnalytics.logEvent("set_favorite_food", bundle)
+        mFirebaseAnalytics.logEvent("set_favorite_food",Bundle().apply {
+            putString(FirebaseAnalytics.Param.ITEM_ID, "123456")
+            putString(FirebaseAnalytics.Param.ITEM_NAME, food)
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
