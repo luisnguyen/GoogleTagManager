@@ -102,8 +102,11 @@ class MainActivity : AppCompatActivity() {
 
         mFirebaseAnalytics.setUserProperty("favorite_food", food)
 
+        val rand:Int = (0..100).random()
+        Log.i(TAG, "item_id: $rand")
+
         mFirebaseAnalytics.logEvent("set_favorite_food",Bundle().apply {
-            putString(FirebaseAnalytics.Param.ITEM_ID, "123456")
+            putString(FirebaseAnalytics.Param.ITEM_ID, rand.toString())
             putString(FirebaseAnalytics.Param.ITEM_NAME, food)
         })
     }
@@ -118,19 +121,14 @@ class MainActivity : AppCompatActivity() {
         if (i == R.id.menu_share) {
             val name = getCurrentImageTitle()
             val text = "I'd love you to hear about $name"
-            Log.d(TAG, "shareFavoriteFood: $text")
-
-            val sendIntent = Intent()
-            sendIntent.action = Intent.ACTION_SEND
-            sendIntent.putExtra(Intent.EXTRA_TEXT, text)
-            sendIntent.type = "text/plain"
-            startActivity(sendIntent)
-
+            val rand:Int = (200..300).random()
+            Log.i(TAG, "image_id: $rand")
             // [START custom_event]
-            val params = Bundle()
-            params.putString("image_name", name)
-            params.putString("full_text", text)
-            mFirebaseAnalytics.logEvent("share_image", params)
+            mFirebaseAnalytics.logEvent("share_image", Bundle().apply {
+                putString("image_name", name)
+                putString("full_text", text)
+                putString("image_id", rand.toString())
+            })
             // [END custom_event]
         }
         return false

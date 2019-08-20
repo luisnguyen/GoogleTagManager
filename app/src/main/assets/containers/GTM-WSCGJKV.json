@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"NjY$0",
+"fingerprint":"ODA$0",
 
 "resource": {
-  "version":"66",
+  "version":"80",
   
   "macros":[{
       "function":"__e",
@@ -61,14 +61,54 @@
       "function":"__dn",
       "instance_name":"Device Name"
     },{
+      "function":"__md",
+      "instance_name":"item_name",
+      "vtp_setDefaultValue":false,
+      "vtp_allEventParam":"item_name",
+      "vtp_checkEcommerceValue":false,
+      "vtp_suggestedEvent":"All Events",
+      "vtp_eventType":"SUGGESTED"
+    },{
       "function":"__e",
       "instance_name":"set_favorite_food"
+    },{
+      "function":"__md",
+      "instance_name":"item_id",
+      "vtp_setDefaultValue":false,
+      "vtp_allEventParam":"item_id",
+      "vtp_checkEcommerceValue":false,
+      "vtp_suggestedEvent":"All Events",
+      "vtp_eventType":"SUGGESTED"
+    },{
+      "function":"__rs",
+      "instance_name":"Screen Resolution"
     },{
       "function":"__e",
       "instance_name":"select_content"
     },{
       "function":"__e",
+      "instance_name":"share_image"
+    },{
+      "function":"__e",
       "instance_name":"image_click"
+    },{
+      "function":"__md",
+      "instance_name":"image_name",
+      "vtp_setDefaultValue":false,
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"image_name"
+    },{
+      "function":"__md",
+      "instance_name":"full_text",
+      "vtp_setDefaultValue":false,
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"full_text"
+    },{
+      "function":"__md",
+      "instance_name":"image_id",
+      "vtp_setDefaultValue":false,
+      "vtp_eventType":"CUSTOM",
+      "vtp_key":"image_id"
     },{
       "function":"__ctv",
       "instance_name":"Container Version"
@@ -84,9 +124,6 @@
     },{
       "function":"__sv",
       "instance_name":"SDK Version"
-    },{
-      "function":"__rs",
-      "instance_name":"Screen Resolution"
     }],
   "tags":[{
       "function":"__fm",
@@ -106,9 +143,9 @@
     },{
       "function":"__fm",
       "once_per_event":true,
-      "vtp_dropParamTable":["list",["map","dropParamKey","event_name"],["map","dropParamKey","item_name"],["map","dropParamKey","item_id"],["map","dropParamKey","firebase_conversion"],["map","dropParamKey","firebase_event_origin"],["map","dropParamKey","firebase_screen"],["map","dropParamKey","firebase_screen_class"],["map","dropParamKey","firebase_screen_id"]],
-      "vtp_overrideEventName":["macro",13],
-      "vtp_editParamTable":["list",["map","editParamKey","event_name","editParamValue",["macro",3]]],
+      "vtp_dropParamTable":["list",["map","dropParamKey","event_name"],["map","dropParamKey","item_id"]],
+      "vtp_overrideEventName":["macro",14],
+      "vtp_editParamTable":["list",["map","editParamKey","event_name","editParamValue",["macro",3]],["map","editParamKey","item_id","editParamValue",["macro",15]],["map","editParamKey","item_name","editParamValue",["macro",16]],["map","editParamKey","device_name","editParamValue",["macro",12]]],
       "vtp_action":"filter",
       "tag_id":10
     },{
@@ -116,6 +153,13 @@
       "once_per_event":true,
       "vtp_action":"block",
       "tag_id":11
+    },{
+      "function":"__fm",
+      "once_per_event":true,
+      "vtp_mergeEventParameters":false,
+      "vtp_action":"measure",
+      "vtp_eventName":["macro",18],
+      "tag_id":12
     }],
   "predicates":[{
       "function":"_cn",
@@ -135,18 +179,35 @@
       "arg1":"date_open"
     },{
       "function":"_cn",
-      "arg0":["macro",13],
+      "arg0":["macro",3],
       "arg1":"set_favorite_food"
     },{
       "function":"_eq",
-      "arg0":["macro",14],
+      "arg0":["macro",13],
+      "arg1":"Pizza"
+    },{
+      "function":"_eq",
+      "arg0":["macro",17],
       "arg1":"select_content"
+    },{
+      "function":"_eq",
+      "arg0":["macro",3],
+      "arg1":"share_image"
+    },{
+      "function":"_eq",
+      "arg0":["macro",2],
+      "arg1":"MainActivity"
+    },{
+      "function":"_cn",
+      "arg0":["macro",1],
+      "arg1":"onCreate"
     }],
   "rules":[
     [["if",0],["add",0]],
     [["if",1,2,3],["add",1]],
-    [["if",4],["add",2]],
-    [["if",5],["add",3]]]
+    [["if",4,5],["add",2]],
+    [["if",6],["add",3]],
+    [["if",7,8,9],["add",4]]]
 },
 "runtime":
 [
