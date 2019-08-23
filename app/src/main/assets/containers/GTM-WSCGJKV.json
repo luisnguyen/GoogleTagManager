@@ -1,9 +1,9 @@
 {
 
-"fingerprint":"ODA$0",
+"fingerprint":"OTE$0",
 
 "resource": {
-  "version":"80",
+  "version":"91",
   
   "macros":[{
       "function":"__e",
@@ -90,6 +90,9 @@
       "instance_name":"share_image"
     },{
       "function":"__e",
+      "instance_name":"share_image_custom"
+    },{
+      "function":"__e",
       "instance_name":"image_click"
     },{
       "function":"__md",
@@ -156,10 +159,18 @@
     },{
       "function":"__fm",
       "once_per_event":true,
+      "vtp_dropParamTable":["list",["map","dropParamKey","image_name"]],
+      "vtp_overrideEventName":["macro",18],
+      "vtp_editParamTable":["list",["map","editParamKey","date_open","editParamValue",["macro",5]],["map","editParamKey","screen_resolution","editParamValue",["macro",16]]],
+      "vtp_action":"filter",
+      "tag_id":12
+    },{
+      "function":"__fm",
+      "once_per_event":true,
       "vtp_mergeEventParameters":false,
       "vtp_action":"measure",
-      "vtp_eventName":["macro",18],
-      "tag_id":12
+      "vtp_eventName":["macro",19],
+      "tag_id":13
     }],
   "predicates":[{
       "function":"_cn",
@@ -193,21 +204,14 @@
       "function":"_eq",
       "arg0":["macro",3],
       "arg1":"share_image"
-    },{
-      "function":"_eq",
-      "arg0":["macro",2],
-      "arg1":"MainActivity"
-    },{
-      "function":"_cn",
-      "arg0":["macro",1],
-      "arg1":"onCreate"
     }],
   "rules":[
     [["if",0],["add",0]],
     [["if",1,2,3],["add",1]],
     [["if",4,5],["add",2]],
     [["if",6],["add",3]],
-    [["if",7,8,9],["add",4]]]
+    [["if",7],["add",4]],
+    [["if",7],["add",5]]]
 },
 "runtime":
 [
